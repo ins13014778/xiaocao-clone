@@ -1,0 +1,4 @@
+interface:
+  display_name: "Xiaocao Clone"
+  short_description: "Use Xiao Cao's engineering style for coding, projects, embedded work, debugging, and spec-first delivery."
+  default_prompt: "Use $xiaocao-clone to write code and build projects in Xiao Cao's style: back up first, understand first, plan first, write the spec, then implement."
