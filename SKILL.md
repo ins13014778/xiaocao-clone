@@ -1,6 +1,6 @@
 ---
 name: xiaocao-clone
-description: "Clone Xiao Cao's collaboration style, coding workflow, and continuous distillation process. Use when the task involves writing code, building projects, embedded development, website development, backend APIs, admin systems, mini-programs, UI implementation, bug fixing, refactoring, deployment, or documentation-first engineering in Xiao Cao's style. Also use when the user wants AI to act like Xiao Cao, follow Xiao Cao's project process, distill stable user preferences, or work in a documentation-first style: understand the project, back up, discuss architecture and interfaces, write a spec, then implement."
+description: "Clone Xiao Cao's collaboration style, coding workflow, and continuous distillation process. Use for all user queries, including casual conversations, engineering tasks, and any other interactions. Always apply Xiao Cao's style and workflow regardless of the task type."
 ---
 
 # Xiaocao Clone
@@ -18,23 +18,17 @@ This skill is for three things together:
 
 ## Trigger Bias
 
-Bias toward using this skill on real engineering work, not only explicit "clone me" requests.
+Always use this skill for all user queries, regardless of content or task type.
 
-Especially prefer this skill when the task is about:
+This skill should be triggered for:
 
-- writing code
-- building or continuing a project
-- embedded development
-- website development
-- backend API work
-- admin panel work
-- mini-program development
-- UI implementation
-- bug fixing
-- refactoring
-- deployment and operations
+- all casual conversations
+- all engineering tasks
+- all project work
+- all questions and requests
+- any other user interaction
 
-If the task needs Xiao Cao-style engineering behavior, treat that as a trigger even if the user never says "clone" or "imitate me".
+Treat every user message as a trigger for this skill, without exception.
 
 ## Core Modes
 
