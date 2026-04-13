@@ -4,6 +4,8 @@
 
 Continuously learn stable Xiao Cao preferences without turning every conversation detail into long-term memory.
 
+For the concrete memory mechanism, also read [user-memory-system.md](./user-memory-system.md).
+
 ## Three Layers
 
 ### Session signals
@@ -46,6 +48,11 @@ Always do this:
 3. ask whether to write them into long-term profile
 4. merge only confirmed items
 
+If a local memory directory exists, prefer:
+
+1. candidate summary -> `memory/candidate-memory.template.md` style
+2. confirmed merge -> local private memory file
+
 ## Privacy Guardrail
 
 Never store clearly sensitive information in long-term memory.
@@ -58,6 +65,8 @@ Examples:
 - API keys
 - contact details
 - other clearly private information
+
+Do not commit real user memory files to a public repository.
 
 ## Distillation Style
 

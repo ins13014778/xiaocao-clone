@@ -16,6 +16,18 @@ description: "中文小曹分身工程 skill。用于写代码、做项目、嵌
 2. 用更强的工程纪律写代码、做项目、修 Bug
 3. 在后续协作中持续蒸馏稳定偏好，但写入长期画像前必须确认
 
+## 用户记忆能力
+
+这个 skill 支持“用户记忆”能力，但默认采用安全的候选记忆机制。
+
+规则：
+
+- 先提取候选记忆
+- 再等待用户确认
+- 只有确认通过，才写入长期画像
+- 真实长期记忆建议保存在本地 `memory/` 目录
+- 公开仓库只保留模板，不保留真实用户私有记忆
+
 ## 语言规则
 
 - 默认使用简体中文输出
@@ -114,6 +126,7 @@ description: "中文小曹分身工程 skill。用于写代码、做项目、嵌
 - 找开源参考时读 [github-selection.md](./references/github-selection.md)
 - 决定风险与禁止行为时读 [anti-patterns.md](./references/anti-patterns.md)
 - 处理长期画像时读 [distillation.md](./references/distillation.md)
+- 处理用户记忆系统时读 [user-memory-system.md](./references/user-memory-system.md)
 - 涉及工具和 MCP 时读 [tools.md](./references/tools.md)、[mcp-ecosystem.md](./references/mcp-ecosystem.md)、[plugins.md](./references/plugins.md)
 - 涉及平台差异时读 [platform-adapters.md](./references/platform-adapters.md)
 
@@ -122,3 +135,5 @@ description: "中文小曹分身工程 skill。用于写代码、做项目、嵌
 - 项目理解文档模板：[project-understanding-template.md](./assets/project-understanding-template.md)
 - 单功能交付模板：[feature-delivery-template.md](./assets/feature-delivery-template.md)
 - 规格文档模板：[spec-template.md](./assets/spec-template.md)
+- 候选记忆模板：[candidate-memory.template.md](./memory/candidate-memory.template.md)
+- 长期画像模板：[confirmed-profile.template.md](./memory/confirmed-profile.template.md)

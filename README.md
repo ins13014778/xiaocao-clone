@@ -1,8 +1,12 @@
 # xiaocao-clone
 
-`xiaocao-clone` 是一个面向 `Codex / Claude Code` 的个人分身 skill，用来复刻小曹的工程协作方式、编码习惯、工具偏好和持续蒸馏规则。
+`xiaocao-clone` 是一个面向 `Codex / Claude Code / Trae` 的中文个人分身工程 skill，用来复刻小曹的工程协作方式、编码习惯、工具偏好、持续蒸馏规则，以及新增的用户记忆能力。
 
-它不只是一个“人格提示词”，而是一套偏工程化的、文档先行的开发 skill，适合这些场景：
+它不只是一个“人格提示词”，而是一套偏工程化、文档先行、功能逐步交付的开发 skill。
+
+## 适用场景
+
+这个 skill 适合这些场景：
 
 - 写代码
 - 接手和继续现有项目
@@ -11,65 +15,113 @@
 - 后端接口开发
 - 管理后台开发
 - 微信小程序开发
-- UI 实现与联调
+- UI 设计与实现
 - Bug 排查
 - 项目重构
 - 部署与运维
 
-## 这个 Skill 能做什么
+## 核心能力
 
-这个 skill 的目标是让 AI 更像“小曹的强化版工程分身”。
+### 1. 中文小曹分身
 
-核心行为包括：
+默认使用中文协作，按“小曹分身”的方式推进工程任务：
 
 - 能备份先备份
-- 先完整阅读项目，而不是只看局部文件
+- 先看懂项目再改代码
 - 先写项目理解文档
-- 先和用户沟通架构、功能、接口、数据库、返回值、页面效果
-- 先写方案文档 / 规格文档
-- 再按文档实现代码
-- 一次只实现一个功能
-- 一个功能一份 Markdown 文档
-- 单功能测试通过后再进入下一个功能
-- 功能稳定后再做备份
-- Bug 连修 3 次失败后，停止盲改，切换到官方文档和一手资料排查
+- 先沟通方案、接口、数据库、返回值、页面效果
+- 先写文档，再实现代码
+- 一次只做一个功能
+- 一个功能一份 Markdown 交付文档
 
-## 这个 Skill 的核心风格
+### 2. 更强的工程能力
 
-### 工程习惯
+已经内置的工程增强包括：
 
-- 先理解项目，再动代码
-- 先规划，再实现
-- 先文档，再编码
-- 不喜欢瞎编
-- 不喜欢不看项目就乱改
-- 不喜欢没规划直接开写
-- 功能要一个一个做，不要一口气乱堆
+- 工程任务分流
+- 编码规范
+- 测试协议
+- GitHub 参考项目筛选规则
+- 数据库改动协议
+- 嵌入式专项流程
+- 项目理解模板
+- 单功能交付模板
 
-### 代码风格
+### 3. 用户记忆功能
 
-- 结构清晰
-- 模块拆分明确
-- 不要过度封装
-- 不要为了高级而高级
-- 单文件默认不超过 `1000` 行
-- 删除代码、删除文件前必须先说明理由，并经过用户同意
+这次新增的重点能力是“用户记忆”。
 
-### 测试偏好
+目标：
 
-- 网站项目优先使用 `Playwright MCP` 自动化测试
-- UI 任务经常配合 `Figma MCP`
-- 小程序 / App 类项目，明确提示用户去官方开发者工具中测试
+- 从长期协作中提取稳定偏好
+- 先生成候选记忆
+- 用户确认后再写入长期画像
+- 真实用户记忆保存在本地，不直接提交到公开仓库
 
-重点测试内容包括：
+## 用户记忆方案
 
-- 接口测试
-- 功能测试
-- 权限测试
-- 数据库读写测试
-- 异常测试
-- Bug 寻找
-- 部署后测试
+### 设计原则
+
+- 本地优先
+- 候选先行
+- 确认后写入
+- 隐私最小化
+
+### 文件结构
+
+仓库中新增了：
+
+```text
+memory/
+|- .gitkeep
+|- confirmed-profile.template.md
+`- candidate-memory.template.md
+```
+
+说明：
+
+- `confirmed-profile.template.md`
+  长期画像模板
+- `candidate-memory.template.md`
+  候选记忆模板
+
+真实使用时，建议你在本地自行创建私有文件，例如：
+
+```text
+memory/
+|- confirmed-profile.private.md
+`- memory-log.private.jsonl
+```
+
+这些私有文件不应推送到 GitHub。
+
+### 记忆流程
+
+建议流程：
+
+1. 对话结束后提取候选记忆
+2. 用候选模板输出结构化总结
+3. 询问用户是否写入长期画像
+4. 用户确认后再合并到本地长期画像
+
+### 适合记的内容
+
+- 工程流程偏好
+- 测试偏好
+- 工具偏好
+- 文档结构偏好
+- GitHub 选型偏好
+- 表达风格偏好
+
+### 不适合记的内容
+
+- 密钥
+- 密码
+- Token
+- 联系方式
+- 明显敏感信息
+- 一次性情绪
+- 临时任务参数
 
 ## 仓库内容说明
 
@@ -83,6 +135,8 @@
   小曹的核心工程流程和交付规则
 - `references/distillation.md`
   持续蒸馏和长期确认机制
+- `references/user-memory-system.md`
+  用户记忆系统设计
 - `references/anti-patterns.md`
   分身需要避免的错误行为
 - `references/tools.md`
@@ -92,35 +146,55 @@
 - `references/plugins.md`
   已验证的 Claude 插件生态画像
 - `references/platform-adapters.md`
-  Claude Code 和 Codex 的适配说明
+  Claude Code、Codex、Trae 的适配说明
+- `references/engineering-routing.md`
+  不同工程任务的分流规则
+- `references/coding-standards.md`
+  编码规范
+- `references/testing-protocol.md`
+  测试协议
+- `references/github-selection.md`
+  GitHub 项目筛选口味
+- `references/database-change-protocol.md`
+  数据库改动协议
+- `references/embedded-workflow.md`
+  嵌入式专项流程
+- `assets/project-understanding-template.md`
+  项目理解文档模板
+- `assets/feature-delivery-template.md`
+  单功能交付模板
 - `assets/spec-template.md`
-  “先写文档再写代码”时可复用的规格模板
+  规格文档模板
 
 ## 安装方式
 
-把这个仓库复制到你的 Codex skills 目录即可。
-
-如果你是直接下载仓库，目标目录建议是：
+目标目录建议：
 
 ```text
 ~/.codex/skills/xiaocao-clone
 ```
 
-Windows 下可以参考：
+Windows 下可参考：
 
 ```powershell
 Copy-Item -Path .\xiaocao-clone -Destination "$HOME\\.codex\\skills" -Recurse
 ```
 
-如果你是把整个仓库 clone 下来，确保仓库根目录本身就是 skill 根目录即可。
+如果你想放到 `Trae` 里使用，建议把它作为显式调用 skill / prompt 包来用，不要完全依赖自动触发。
 
 ## 校验方式
 
-如果你的本地已经装了 Codex 的 `skill-creator` 系统 skill，可以这样校验：
+如果本地已经装了 Codex 的 `skill-creator` 系统 skill，可以这样校验：
 
 ```powershell
+$env:PYTHONUTF8='1'
 python "$HOME\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.py" "<xiaocao-clone-路径>"
 ```
+
+说明：
+
+- Windows 下中文 skill 容易遇到默认编码问题
+- 建议先设置 `PYTHONUTF8=1`
 
 ## 触发示例
 
@@ -134,15 +208,14 @@ python "$HOME\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.p
 - “做个网站功能，一次做一个模块”
 - “写嵌入式代码，先把方案和接口写清楚”
 - “先用 Figma MCP 看下 UI，再实现页面”
+- “把这个偏好记住”
+- “蒸馏我一下，更新长期画像”
 
-## 模式说明
+## GitHub 仓库介绍建议
 
-这个 skill 支持两种模式：
+推荐 About 描述：
 
-- `enhanced`
-  默认模式，更稳、更主动，但仍然保持小曹的方法论
-- `authentic`
-  更像真实小曹本人，语气更口语，个性更强
+> 中文小曹分身工程 skill，支持写代码、做项目、嵌入式、UI、Bug 排查、持续蒸馏和本地用户记忆。
 
 ## 联系方式
 
